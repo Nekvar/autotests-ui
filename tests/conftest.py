@@ -39,6 +39,7 @@ def initialize_browser_state(playwright: Playwright) -> Page:  # type: ignore
 
     # Сохранение состояния браузера
     context.storage_state(path='browser-state.json')
+    browser.close()
 
 
 @pytest.fixture(scope='function')
