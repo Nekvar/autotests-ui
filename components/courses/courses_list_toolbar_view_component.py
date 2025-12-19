@@ -12,11 +12,14 @@ class CoursesListToolbarViewComponent(BaseComponent):
         self.title = page.get_by_test_id('courses-list-toolbar-title-text')
         self.create_course_button = page.get_by_test_id('courses-list-toolbar-create-course-button')
 
-    def check_visible(self):
+    def check_visible(self, is_create_course_disabled: bool = True):
         expect(self.title).to_be_visible()
         expect(self.title).to_have_text('Courses')
 
-        expect(self.create_course_button).to_be_visible()
+        if is_create_course_disabled:
+            expect(self.create_course_button).to_be_visible()
+        else:
+            expect(self.create_course_button).not_to_be_visible()
 
     def click_create_course_button(self):
         self.create_course_button.click()
