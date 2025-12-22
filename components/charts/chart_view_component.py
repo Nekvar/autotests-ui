@@ -10,24 +10,8 @@ class ChartViewComponent(BaseComponent):
         self.title = page.get_by_test_id(f'{identifier}-widget-title-text')
         self.chart = page.get_by_test_id(f'{identifier}-{chart_type}-chart')
 
-    def check_visible_students_chart(self):
+    def check_visible(self, title: str):
         expect(self.title).to_be_visible()
-        expect(self.title).to_have_text('Students')
+        expect(self.title).to_have_text(title)
+
         expect(self.chart).to_be_visible()
-
-    def check_visible_courses_chart(self):
-        expect(self.title).to_be_visible()
-        expect(self.title).to_have_text('Courses')
-        expect(self.chart).to_be_visible()
-
-    def check_visible_activities_chart(self):
-        expect(self.title).to_be_visible()
-        expect(self.title).to_have_text('Activities')
-        expect(self.chart).to_be_visible()
-
-    def check_visible_scores_chart(self):
-        expect(self.title).to_be_visible()
-        expect(self.title).to_have_text('Scores')
-        expect(self.chart).to_be_visible()
-
-
