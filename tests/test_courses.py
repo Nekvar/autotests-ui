@@ -19,9 +19,6 @@ def test_empty_courses_list(courses_list_page: CoursesListPage):
 def test_create_course(create_course_page: CreateCoursePage, courses_list_page: CoursesListPage):
     # Проверки на странице Create Course
     create_course_page.visit('https://nikita-filonov.github.io/qa-automation-engineer-ui-course/#/courses/create')
-
-    create_course_page.check_visible_create_course_title()
-    create_course_page.check_disabled_create_course_button()
     create_course_page.image_upload_widget.check_visible(is_image_uploaded=False)
     create_course_page.create_course.check_visible(
         title="",
@@ -50,6 +47,10 @@ def test_create_course(create_course_page: CreateCoursePage, courses_list_page: 
         min_score="10",
         is_text_fill=True
     )
+    # Проверка корректности отображения панели управления и нажатие на кнопку создания задания
+    create_course_page.create_course_toolbar_view.check_visible()
+    create_course_page.create_course_toolbar_view.click_create_exercise_button()
+    # Проверка корректности отображения панели управления и нажатие на кнопку создания курса
     create_course_page.create_course_toolbar.check_visible()
     create_course_page.create_course_toolbar.click_create_course_button()
     # Проверки после редиректа на Courses
