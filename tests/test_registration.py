@@ -14,5 +14,4 @@ def test_successful_registration(dashboard_page: DashboardPage, registration_pag
         password="password"
     )
     registration_page.click_registration_button()
-
     dashboard_page.dashboard_toolbar_view.check_visible()
