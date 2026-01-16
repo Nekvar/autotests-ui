@@ -31,6 +31,6 @@ class BaseElement:
             expect(locator).to_be_visible()
 
     def check_have_text(self, text: str, nth: int = 0, **kwargs):
-        with allure.step(f'Checking that {self.type_of} "{self.name}" has text "{text}"'):
+        with allure.step(f'Checking that {self.type_of} "{self.name}" have text "{text}"'):
             locator = self.get_locator(nth, **kwargs)
             expect(locator).to_have_text(text)

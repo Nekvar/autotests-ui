@@ -18,6 +18,6 @@ class Input(BaseElement):
             locator.fill(value)
 
     def check_have_value(self, value: str, nth: int = 0, **kwargs):
-        with allure.step(f'Checking that {self.type_of} "{self.name}" has a value "{value}"'):
+        with allure.step(f'Checking that {self.type_of} "{self.name}" have a value "{value}"'):
             locator = self.get_locator(nth, **kwargs)
             expect(locator).to_have_value(value)
