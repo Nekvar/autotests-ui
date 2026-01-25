@@ -4,3 +4,13 @@ __pycache__/
 .venv/
 .pytest_cache/
 .idea/
+
+# allure
+allure-results
+allure-report
+
+# testing artifacts
+*.html
+*.json
+videos
+tracing
