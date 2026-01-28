@@ -18,11 +18,11 @@ jobs:
     steps:
       # 1. Шаг, который будет клонировать ваш репозиторий на машину GitHub Actions
       - name: Check out repository
-        uses: actions/checkout@v4  # Используем GitHub Action для клонирования репозитория
+        uses: actions/checkout@v6 # Используем GitHub Action для клонирования репозитория
 
       # 2. Шаг для установки Python на виртуальной машине
       - name: Set up Python
-        uses: actions/setup-python@v4  # Используем GitHub Action для установки Python
+        uses: actions/setup-python@v6  # Используем GitHub Action для установки Python
         with:
           python-version: '3.12'  # Устанавливаем версию Python 3.12 (можно заменить на другую версию)
 
@@ -40,7 +40,7 @@ jobs:
 
       # 5. Шаг для получения истории отчётов Allure, если она существует
       - name: Get Allure history
-        uses: actions/checkout@v4  # Опять клонируем репозиторий, чтобы получить историю отчётов
+        uses: actions/checkout@v6  # Опять клонируем репозиторий, чтобы получить историю отчётов
         if: always()  # Всегда выполняем, независимо от успеха или неудачи предыдущих шагов
         continue-on-error: true  # Если здесь возникнет ошибка, workflow всё равно продолжит выполнение
         with:
@@ -58,7 +58,7 @@ jobs:
       # 7. Шаг для деплоя отчёта Allure на GitHub Pages, чтобы его можно было просматривать в браузере
       - name: Deploy report to Github Pages
         if: always()  # Выполняется всегда, независимо от успеха других шагов
-        uses: peaceiris/actions-gh-pages@v4  # Используем GitHub Action для публикации отчёта на GitHub Pages
+        uses: peaceiris/actions-gh-pages@v2  # Используем GitHub Action для публикации отчёта на GitHub Pages
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}  # Токен для аутентификации на GitHub
           publish_branch: gh-pages  # Указываем, что отчёт будет опубликован в ветке gh-pages
