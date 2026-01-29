@@ -62,4 +62,4 @@ jobs:
         env:
           PERSONAL_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # Токен для аутентификации на GitHub
           PUBLISH_BRANCH: gh-pages  # Указываем, что отчёт будет опубликован в ветке gh-pages
-          PUBLISH_DIR: allure-history  # Указываем папку, которая будет опубликована на GitHub Pages
+          PUBLISH_DIR: allure-history  # Указываем папку, которая будет опубликована на GitHub Page
