@@ -33,7 +33,7 @@ jobs:
           pip install -r requirements.txt  # Устанавливаем зависимости, указанные в requirements.txt
           playwright install --with-deps  # Устанавливаем браузеры для Playwright (если они не установлены)
 
-      # 4. Шаг для запуска тестов с использованием pytest и генерации отчётов Allure
+      # 4. Шаг для запуска тестов с использованием pytest и генерации отчётов Allure.
       - name: Run Playwright tests with pytest and generate Allure results
         run: |
           pytest -m regression --alluredir=allure-results --numprocesses 2  # Запускаем тесты, отмеченные как "regression", генерируем результаты для Allure
